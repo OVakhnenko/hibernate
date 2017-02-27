@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.vakhnenko.hibernate.mappings.set.Developer" table="HIBERNATE_DEVELOPERS">
+        <meta attribute="class-description">
+            This class contains the developer's detail.
+        </meta>
+        <id name="id" type="int" column="ID">
+            <generator class="native"/>
+        </id>
+        <set name="projects" cascade="all">
+            <key column="DEVELOPER_ID"/>
+            <one-to-many class="com.vakhnenko.hibernate.mappings.set.Project"/>
+        </set>
+        <property name="firstName" column="FIRST_NAME" type="string"/>
+        <property name="lastName" column="LAST_NAME" type="string"/>
+        <property name="specialty" column="SPECIALTY" type="string"/>
+        <property name="experience" column="EXPERIENCE" type="int"/>
+    </class>
+
+    <class name="com.vakhnenko.hibernate.mappings.set.Project" table="HIBERNATE_PROJECTS">
+        <meta attribute="class-description">
+            This class contains the projects records.
+        </meta>
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="projectName" column="PROJECT_NAME" type="string"/>
+        <property name="companyName" column="COMPANY" type="string"/>
+    </class>
+</hibernate-mapping>
