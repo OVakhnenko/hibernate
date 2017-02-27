@@ -1,4 +1,4 @@
-package net.proselyte.hibernate.mappings.sortedmap;
+package com.vakhnenko.hibernate.mappings.sortedmap;
 
 import java.util.Comparator;
 

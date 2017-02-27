@@ -1,4 +1,4 @@
-package net.proselyte.hibernate.mappings.sortedmap;
+package com.vakhnenko.hibernate.mappings.sortedmap;
 
 public class Project implements Comparable<String>{
     private int id;

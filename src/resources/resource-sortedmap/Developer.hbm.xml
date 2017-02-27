@@ -4,17 +4,17 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="net.proselyte.hibernate.mappings.sortedmap.Developer" table="HIBERNATE_DEVELOPERS">
+    <class name="com.vakhnenko.hibernate.mappings.sortedmap.Developer" table="HIBERNATE_DEVELOPERS">
         <meta attribute="class-description">
             This class contains developer's details.
         </meta>
         <id name="id" type="int" column="id">
             <generator class="native"/>
         </id>
-        <map name="projects" cascade="all" sort = "net.proselyte.hibernate.mappings.sortedmap.ProjectComparator">
+        <map name="projects" cascade="all" sort = "com.vakhnenko.hibernate.mappings.sortedmap.ProjectComparator">
             <key column="DEVELOPER_ID"/>
             <index column="SPHERE" type="string" />
-            <one-to-many class="net.proselyte.hibernate.mappings.sortedmap.Project"/>
+            <one-to-many class="com.vakhnenko.hibernate.mappings.sortedmap.Project"/>
         </map>
         <property name="firstName" column="FIRST_NAME" type="string"/>
         <property name="lastName" column="LAST_NAME" type="string"/>
@@ -22,7 +22,7 @@
         <property name="experience" column="EXPERIENCE" type="int"/>
     </class>
 
-    <class name="net.proselyte.hibernate.mappings.sortedmap.Project" table="HIBERNATE_PROJECTS">
+    <class name="com.vakhnenko.hibernate.mappings.sortedmap.Project" table="HIBERNATE_PROJECTS">
         <meta attribute="class-description">
             This class contains project's records.
         </meta>
