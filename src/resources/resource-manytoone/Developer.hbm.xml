@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.vakhnenko.hibernate.association.manytoone.Developer" table="HIBERNATE_DEVELOPERS">
+        <meta attribute="class-description">
+            This class contains developer's detail.
+        </meta>
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="firstName" column="FIRST_NAME" type="string"/>
+        <property name="lastName" column="LAST_NAME" type="string"/>
+        <property name="specialty" column="SPECIALTY" type="string"/>
+        <property name="experience" column="EXPERIENCE" type="int"/>
+        <many-to-one name="company" column="COMPANY" not-null="true"
+                     class="com.vakhnenko.hibernate.association.manytoone.Company"/>
+    </class>
+
+    <class name="com.vakhnenko.hibernate.association.manytoone.Company" table="HIBERNATE_COMPANIES">
+        <meta attribute="class-description">
+            This class contains company details.
+        </meta>
+        <id name="id" type="int" column="ID">
+            <generator class="native"/>
+        </id>
+        <property name="companyName" column="COMPANY_NAME" type="string"/>
+    </class>
+
+</hibernate-mapping>

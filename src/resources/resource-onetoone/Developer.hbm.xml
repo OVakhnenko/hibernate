@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.vakhnenko.hibernate.association.onetoone.Developer" table="HIBERNATE_DEVELOPERS">
+        <meta attribute="class-description">
+            This class contains developer's detail.
+        </meta>
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="firstName" column="FIRST_NAME" type="string"/>
+        <property name="lastName" column="LAST_NAME" type="string"/>
+        <property name="specialty" column="SPECIALTY" type="string"/>
+        <property name="experience" column="EXPERIENCE" type="int"/>
+        <many-to-one name="contact" column="CONTACT" not-null="true" unique="true"
+                    class="com.vakhnenko.hibernate.association.onetoone.Contact" />
+    </class>
+
+    <class name="com.vakhnenko.hibernate.association.onetoone.Contact" table="HIBERNATE_CONTACTS">
+        <meta attribute="class-description">
+            This class contains the address detail.
+        </meta>
+        <id name="id" type="int" column="ID">
+            <generator class="native"/>
+        </id>
+        <property name="address" column="ADDRESS" type="string"/>
+        <property name="city" column="CITY" type="string"/>
+        <property name="phoneNumber" column="PHONE_NUMBER" type="string"/>
+        <property name="email" column="EMAIL" type="string"/>
+    </class>
+
+</hibernate-mapping>

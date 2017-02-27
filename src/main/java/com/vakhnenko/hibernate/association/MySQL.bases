@@ -1,0 +1,25 @@
+create table hibernate_developers(
+    id int not null auto_increment,
+    first_name varchar(50) default null,
+    last_name varchar(50) default null,
+    specialty varchar(50) default null,
+    experience int default null,
+    company int default null,
+    contact int default null,
+    primary key(id)
+);
+
+create table hibernate_companies (
+    id int not null auto_increment,
+    company_name varchar(100) default null,
+    primary key (id)
+);
+
+create table hibernate_contacts (
+   id int not null auto_increment,
+   address varchar(100) default null,
+   city varchar(50) default null,
+   phone_number varchar(20) default null,
+   email varchar(100) default null,
+   primary key (id)
+);
