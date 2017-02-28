@@ -23,3 +23,17 @@ create table hibernate_contacts (
    email varchar(100) default null,
    primary key (id)
 );
+
+create table hibernate_projects (
+    id int not null auto_increment,
+    project_name varchar(50) default null,
+    company varchar(50) default null,
+    primary key (id),
+    developer_id int default null
+);
+
+create table hibernate_dev_projects (
+    developer_id int not null,
+    project_id int not null,
+    primary key (developer_id, project_id)
+);
