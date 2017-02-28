@@ -5,6 +5,7 @@ create table hibernate_developers(
     specialty varchar(50) default null,
     experience int default null,
     company int default null,
+    company_name varchar(100) default null,
     contact int default null,
     primary key(id)
 );

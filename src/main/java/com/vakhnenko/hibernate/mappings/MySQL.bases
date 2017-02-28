@@ -4,6 +4,7 @@ create table hibernate_developers(
     last_name varchar(50) default null,
     specialty varchar(50) default null,
     experience int default null,
+    company_name varchar(100) default null,
     primary key(id)
 );
 
@@ -23,4 +24,9 @@ create table hibernate_dev_projects (
     primary key (developer_id, project_id)
 );
 
+create table hibernate_companies (
+    id int not null auto_increment,
+    company_name varchar(100) default null,
+    primary key (id)
+);
 
