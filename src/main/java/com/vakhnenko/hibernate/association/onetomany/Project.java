@@ -16,7 +16,6 @@ public class Project {
         this.companyName = companyName;
     }
 
-
     /**
      * Getters and Setters
      */

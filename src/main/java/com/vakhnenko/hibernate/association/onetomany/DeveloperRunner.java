@@ -18,13 +18,13 @@ public class DeveloperRunner {
         DeveloperRunner developerRunner = new DeveloperRunner();
 
         System.out.println("Creating the set of projects.");
-        HashSet<Project> projects1 = new HashSet<Project>();
-        projects1.add(new Project("Proselyte Tutorial", "proselyte.net"));
-        projects1.add(new Project("SkybleLib", "SkybleSoft"));
+        HashSet<Project2> projects1 = new HashSet<Project2>();
+        projects1.add(new Project2("Proselyte Tutorial", "proselyte.net", 111));
+        projects1.add(new Project2("SkybleLib", "SkybleSoft", 222));
 
-        HashSet<Project> projects2 = new HashSet<Project>();
-        projects2.add(new Project("Some Project", "Some Company"));
-        projects2.add(new Project("One more Project", "One more Company"));
+        HashSet<Project2> projects2 = new HashSet<Project2>();
+        projects2.add(new Project2("Some Project", "Some Company", 333));
+        projects2.add(new Project2("One more Project", "One more Company", 444));
 
         System.out.println("Adding developer's records to the DB");
 
@@ -45,12 +45,12 @@ public class DeveloperRunner {
         sessionFactory.close();
     }
 
-    public int addDeveloper(String firstName, String lastName, String specialty, int experience, Set<Project> projects) {
+    public int addDeveloper(String firstName, String lastName, String specialty, int experience, Set<Project2> projects) {
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
 
         transaction = session.beginTransaction();
-        Developer developer = new Developer(firstName, lastName, specialty, experience);
+        Developer developer = new Developer2(firstName, lastName, specialty, experience, 999);
         developer.setProjects(projects);
         int developerId = Integer.valueOf(String.valueOf(session.save(developer))).intValue(); //serializable to int
         transaction.commit();
@@ -63,7 +63,7 @@ public class DeveloperRunner {
         Transaction transaction = null;
 
         transaction = session.beginTransaction();
-        List<Developer> developers = session.createQuery("FROM Developer").list();
+        List<Developer> developers = session.createQuery("FROM Developer2").list();
         for (Developer developer : developers) {
             System.out.println(developer);
             Set<Project> projects = developer.getProjects();
@@ -80,7 +80,7 @@ public class DeveloperRunner {
         Transaction transaction = null;
 
         transaction = session.beginTransaction();
-        Developer developer = (Developer) session.get(Developer.class, developerId);
+        Developer developer = (Developer) session.get(Developer2.class, developerId);
         developer.setExperience(experience);
         session.update(developer);
         transaction.commit();
@@ -92,7 +92,7 @@ public class DeveloperRunner {
         Transaction transaction = null;
 
         transaction = session.beginTransaction();
-        Developer developer = (Developer) session.get(Developer.class, developerId);
+        Developer developer = (Developer) session.get(Developer2.class, developerId);
         session.delete(developer);
         transaction.commit();
         session.close();

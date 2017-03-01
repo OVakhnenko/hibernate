@@ -7,6 +7,7 @@ create table hibernate_developers(
     company int default null,
     company_name varchar(100) default null,
     contact int default null,
+    xxx int default null,
     primary key(id)
 );
 
@@ -30,7 +31,8 @@ create table hibernate_projects (
     project_name varchar(50) default null,
     company varchar(50) default null,
     primary key (id),
-    developer_id int default null
+    developer_id int default null,
+    xxx int default null
 );
 
 create table hibernate_dev_projects (

@@ -8,7 +8,7 @@ public class Developer {
     private String lastName;
     private String specialty;
     private int experience;
-    private Set<Project> projects;
+    private Set<Project2> projects;
 
     /**
      * Default Constructor
@@ -74,7 +74,7 @@ public class Developer {
         return projects;
     }
 
-    public void setProjects(Set<Project> projects) {
+    public void setProjects(Set<Project2> projects) {
         this.projects = projects;
     }
 
